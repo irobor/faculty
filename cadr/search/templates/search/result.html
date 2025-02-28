@@ -1,0 +1,59 @@
+{% extends "index.html" %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}     
+    <section class="ContentContainer">
+        <div class="gamut-Layout"> 
+            <div class="row">
+                <div data-testid="header-search-dropdown" class="gamut-SearchContainer">
+                    <form method="POST" action="{{ url_for('search.index') }}" class="d-flex float-r-search gamut-StyledForm" role="search">
+                        {{ widget_menu.form.csrf_token }}                     
+                        <i class="fa fa-search ci-search position-absolute top-50 start-0 translate-middle-y text-i fs-base me-3" aria-hidden="true"></i>
+                        {{ widget_menu.form.searched(class="gamut-Search-StyledInput", placeholder="Поиск по Каталогу", type='search') }}                                             
+                    </form>
+                </div>
+                <h2 data-testid="page-details" aria-live="polite" class="gamut-br4avd-Text e8i0p5k0">Найдено 1 - {{ ln }} из {{ ln }} курса для <span class="gamut-4us62z-Text">{{ queryForm }}</span></h2>    
+                <div class="gamut-Result-TabsBase">
+                    {% if not result %}        
+                        <h5 class="card-title">#Ни чего не найдено</h5><br>
+                    {% else  %}   
+                    <ul class="cadr-LayoutGrid-Search">            
+                        {% for crss in result %} 
+                        <li class="cadr-Column-Search" >			 		 
+                            <a class="card-Anchor-AnchorBase" aria-disabled="false"  href="{{ url_for('catalog.course', id=crss['id']) }}">
+                                <div class="card  card-Shadow">		
+                                    <div class="card-header">
+                                        {{ crss['cat_title'] }}
+                                    </div>
+                                    <div class="card-body">                  
+										<h5 class="card-title">{{ crss['name'] }}</h5>
+										{% for price in price_watch %}
+											<p class="gamut-Text-P">
+												{% if price['id'] == crss['price']  %}			
+													<span class="gamut-1aub0r4-Text e8i0p5k0"><i class="fa-regular fa-clock"></i> <b>{{ price['watch'] }}</b> {{ price['word'] }}</span>,
+													<span class="gamut-1wx7f9v-Text e8i0p5k0"> <b>{{ price['price'] }}</b> <i class="fa-regular fa-ruble-sign"></i> </span>
+												{% endif %} 
+											</p>
+										{% endfor %}   				
+									</div>
+                                </div>
+                            </a>                    
+                        </li> 
+                        {% endfor %}                   
+                    </ul> 
+                    {% endif %}
+                   
+               </div>
+            </div>            
+            
+         </div>
+                
+         
+
+    </section> 
+{% endblock %}
+
+    
+   

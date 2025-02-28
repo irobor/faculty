@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block content %}
+ <section id="headbild">
+    <div class="page-thank">
+        <h2>Спасибо</h2>
+ <h3>за оставленную заявку</h3>
+ <p>Наш менеджер свяжется с Вами в ближайшее время.</p>
+ <a href="{{ url_for('catalog.index') }}" >
+ <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Обратно в Каталог</button>      
+</a>
+</div>
+ </section>
+{% endblock %}

@@ -1,0 +1,253 @@
+{% extends "index.html" %}
+{% block title %} {{course['title']}} {% endblock %}
+  {% block description %}{% endblock %}	
+
+{% block content %}
+
+   <!--==========================
+  Head Bild
+  ============================-->
+  <section id="headbild">
+    <div class="container wow fadeInUp">
+     <div class="row">
+        <div class="col-md-12">
+          <h1 class="section-title-white">{{course['name']}}</h1>
+		  <button type="button" class="btn btn-primary btn-yelllow dtn-shadow" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Оставить Заявку</button>        
+		  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h1 class="modal-title fs-5" id="exampleModalLabel">Заявка на обучение</h1>				  
+				  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>				  
+				</div>
+				<label for="recipient-name" class="col-form-label">Оставьте заявку на обучение, и мы свяжемся в ближайшее время для уточнения деталей.</label>
+				<div class="modal-body">
+				  <form id="ask"  method="POST" action="{{ url_for('ask.index') }}">
+					{{ widget_formAsk.form.csrf_token }}  
+					<div class="mb-3">					 				 
+					  {{ widget_formAsk.form.name(class="form-control", id="recipient-name", placeholder="Имя", type='text') }}   
+					</div>
+					<div class="mb-3">											 
+						{{ widget_formAsk.form.phone(class="form-control", id="phone-form", placeholder="Телефон", type='tel' ) }}   
+					  </div>
+					<div class="mb-3">					  				  
+					  {{ widget_formAsk.form.textArea(class="form-control", id="message-text" , type='text', placeholder= "Желаемое удостоверение") }}
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked required >
+						<label class="form-check-label" for="flexCheckChecked">
+							Я согласен с Политикой конфиденциальности
+						</label>
+					  </div>
+				  </form>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>				  
+				  {{ widget_formAsk.form.submit(class="btn btn-primary", form="ask") }}
+				</div>
+			  </div>
+			</div>
+		  </div> 
+		  <!-- конец Формы заявки -->
+          
+        </div>
+      </div>
+    </div>
+	<!-- скрипт маски для формы заявки  --> 
+	<script src="{{url_for('static', filename='js/mask.js')}}"></script>	
+  </section>
+   <!--==========================
+  Описание курса
+  ============================-->
+  <section class="ContentContainer" >
+	<div>	
+			  <!-- модуль -->
+		<section class="overviewNext">
+			<div class="overviewWrapper">
+			<!-- breadcamp -->
+				<nav class="breadcamp"  style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="{{ url_for('site.index') }}"> <i class="fa-light fa-house"></i></a></li>
+						<li class="breadcrumb-item"><a href="{{ url_for(catalog_url['index']) }}"> {{ catalog_url['name'] }}</a></li>
+					  <li class="breadcrumb-item"><a href="{{ url_for(category_url['index'], url_id=category_url['id_url'], id=category_url['id']) }}"> {{ category_url['name'] }}</a></li>
+					  <li class="breadcrumb-item active" aria-current="page">{{course['name']}}</li>
+					</ol>
+				  </nav>
+				<div class="syllabusNextTabs"> 
+						<ul class="nav nav-tabs" id="myTab" role="tablist">
+							<li class="nav-item" role="presentation">
+								<button class="nav-link nav-tabs-Description active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="false"><h4>Описание</h4></button>
+							</li>
+							<li class="nav-item" role="presentation">
+								<button class="nav-link  nav-tabs-Description" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="true"><h4>Как оформить</h4></button>
+							</li>										   
+							<li class="nav-item" role="presentation">
+								<button class="nav-link nav-tabs-Description" id="pay-tab" data-bs-toggle="tab" data-bs-target="#pay" type="button" role="tab" aria-controls="pay" aria-selected="false"><h4>Оплата</h4></button>
+							</li>
+						</ul>
+				 </div>
+				 <section class="viewWrapper" >		
+					<div class="tab-content" id="myTabContent">
+						<!-- описание курса -->
+						<div class="tab-pane fade  course-h4 show active" id="home" role="tabpanel" aria-labelledby="home-tab">							
+							{{course['skils'] | safe}}											
+						</div>	
+						<!-- конец описания курса -->
+						<!-- Как оформить курс -->
+						<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+							<h3>Варианты оформления заказа</h3>
+							<ul>
+								<li>
+									<span style="color:#364657"><b>Самый быстрый:</b></span>
+									<p>Позвоните по телефону: 
+									<a href="tel:+79377270033" class="href-unset">
+										 <span class="gamut-Text-tel"><i class="fa-light fa-mobile-notch"></i> +7 (937) 727-00-33,</span>
+									</a>
+									
+									<a href="https://wa.me/79377270033" class="btn btn-primary bd-btn-lg fw-semibold btn-lg btn-whatswpp-course" ><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+									<br> и наш менеджер оформит заказ, а также ответит на ваши вопросы.									
+									</p>
+								</li>
+								<li>
+									<span style="color:#364657"><b>Чуть сложнее, но всё ещё очень простой:</b></span>
+									<p>Нажмите кнопку <button type="button" class="btn btn-primary btn-yelllow dtn-shadow" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Отправить Заявку</button><br>
+										После чего заполните краткую форму, и наш менеджер перезвонит вам, чтобы уточнить детали заказа.</p>
+							   </li>
+								<li>
+									<span style="color:#364657"><b>Для оформления необходимо отправить заявку на почту <a href="#"> faculty.dpo@yandex.ru </a> :</b></span>
+									<ol>
+										<li>Заполненную заявку </li>
+										<li>Карточку Вашей организации</li>									
+									</ol>
+									<p>Для некоторых удостоверений нужна фотография в цифровом формате. </p>
+									<p>Средний срок выполнения заказа – 3 дня.</p>
+									<p>Отправьте заявку на почту <a href="#"> faculty.dpo@yandex.ru</a></p>
+									<!--конопка скачать заявку -->	
+									<div class="d-flex flex-column flex-lg-row align-items-md-stretch justify-content-md-center gap-3 mb-4"> 
+										<a href="{{ url_for('site.download', name= 'Заявка_обучение_от_юрлица.docx' ) }}" class="btn btn-primary bd-btn-lg fw-semibold btn-lg" ><i class="bi bi-file-earmark-arrow-down-fill i-fnt-sz"></i> Документ для Юр.лиц</a>
+										<a href="{{ url_for('site.download', name= 'Заявка_обучение_от_физлица.docx' ) }}" class="btn btn-primary bd-btn-lg fw-semibold btn-lg" ><i class="bi bi-file-earmark-arrow-down-fill i-fnt-sz"></i> Документ для Физ.лиц</a>	
+									</div>
+								</li>
+							</ul>							
+						</div>
+						<!--конец офрмления курса -->	
+						<!-- -->
+							
+						<!-- -->						
+						<!-- Оплата курса-->
+						<div class="tab-pane fade" id="pay" role="tabpanel" aria-labelledby="pay-tab">
+							<div class="">
+								<div class="h4">Гарантии :</div> <p>Выдаваемые документы заносятся в ФИС ФРДО</p>
+								<div class="h4">Оплата:</div> <p>Наличным и безналичным расчетом (Бухгалтерские документы)</p>
+								<div class="h4">Доставка:</div> 
+								<p>
+									Работаем со всеми регионами РФ! По Москве в пределах МКАД доставка бесплатная нашим курьером.</br>
+									Оригиналы в другие регионы отправляем за свой счёт почтой России заказными письмами.
+								</p>
+							</div>
+						</div>
+						<!-- Конец Оплаты курса-->
+					</div>
+				 </section>		
+			</div>
+			<!-- инфо блок -->
+			<div class="infobox"> 
+			<!-- 
+				<p class="card-text">     
+					Уровень обучения:
+					<span class="gamut-Text">{{course['level_study']}}</span>
+				</p>
+				-->
+				<p class="card-text">
+					Формат обучения:
+					<span class="gamut-Text text-font">{{course['format']}}</span>
+				</p>					
+				<p class="card-text">
+					Срок (часов):
+					<span class="gamut-Text">
+						{{ price_watch[0]['watch'] }}
+						{% if  price_watch|length > 1 %}
+						||	{{ price_watch[1]['watch'] }}
+						{% endif %}						
+					</span>
+				</p>
+				<p class="card-text">
+					Стоимость:
+					{% for price in price_watch %}
+						<span class="gamut-Text">{{price['price']}} руб.</span>
+						{{ price['name'] }}
+					{% endfor %}										
+				</p>
+				
+			</div>
+			<!-- конец инфо блок -->
+			
+		</section>
+			 <!-- end -->		
+	</div>  
+	{% if doc_pdo.url %}
+	 <!-- программа ДПО-->
+		<div class="gamut-nameLicense-CardWrappe">
+			<div class="gamut-doc-LayoutGrid"> 
+				<div class="gamut-4emyly-doc-Column">  
+					<div class="gamut-nameLicenseLeft-FlexBox">					   
+						<span class="gamut-4emyly-Text "> <a href=" {{ url_for('static', filename='files/'+doc_pdo.url) }} " class="btn-pdf" target="_blank"> <i class="fa-light fa-file-lines"></i> </a></span>
+					</div>
+				</div>
+				<div class="gamut-77kgke-doc-Column"> 
+					<div class="gamut-nameLicenseright-Box">
+						<span class="gamut-77kgke-Text ">
+							Образовательная программа </br>
+							 
+						</span>
+					</div>    
+				</div>      
+			</div>	
+		  </div>	
+		   <!-- end -->
+	{% endif %}
+  </section>
+ <!--Удостовирение ========================== 
+ <section id="testimonials">
+    <div class="container wow fadeInUp">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="section-title">Образцы удостоверений</h3>
+          <div class="section-title-divider"></div>
+          <p class="section-description">Такое удостоверение является документом, подтверждающим, что после окончания вуза специалист успешно прошел дополнительную подготовку.</p>
+        </div>
+      </div>    
+	 
+	<div class="row">
+		{% for url in url_certfct %}
+		<section class="hero">						  
+			  <img src="{{ url_for('static', filename='img/certifications/'+url.url) }}" alt="">			  
+		</section>
+		{% endfor %}
+	</div>
+  </section>
+  -->
+  <!--========================== -->
+    <!-- License a href -->
+  <section class="ContentContainer">
+	<div class="gamut-nameLicense-CardWrappe">
+		<div class="gamut-doc-LayoutGrid"> 
+			<div class="gamut-4emyly-doc-Column">  
+				<div class="gamut-nameLicenseLeft-FlexBox">					   
+					<span class="gamut-4emyly-Text "> <a href="{{ url_for('static', filename='files/license.pdf') }}" target="_blank" > <i class="fa-light fa-file-invoice"></i> </a></span>
+				</div>
+			</div>
+			<div class="gamut-77kgke-doc-Column"> 
+				<div class="gamut-nameLicenseright-Box">
+					<span class="gamut-77kgke-Text ">
+						Лицензия Рособрнадзора</br>
+						№ Л035-01239-34/00651689
+					</span>
+				</div>    
+			</div>      
+		</div>	
+	</div>	
+  </section>
+<!-- End License a href -->
+
+{% endblock %}

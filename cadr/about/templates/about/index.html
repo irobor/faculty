@@ -1,0 +1,69 @@
+{% extends "index.html" %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+	{% block content %}    
+    <section class="ContentContainer">		
+	
+				
+        <div style="padding-top: 3rem;">
+        <div class="row">
+            <div class="col-md-12">
+              <h3 class="section-title">Компания</h3>
+              <div class="section-title-divider"></div>
+              <p class="section-description"> Под ключ со специалистами и оборудованием с возможным ускорением до 2-х недель</p>
+            </div>
+          </div>
+			<div class="cadr-LayoutGrid">
+				<div class="cadr-Grid-row1-ColumnDocLicense mod-Grid-none">
+				<h2 class="gamut-1iloxdz-Text">О нас</h2>
+					 <p class="about-text">
+                          Общество с Ограниченной Ответственностью "Факультет" предоставляет образовательные услуги на основании лицензии:
+						<ul>
+							<li>
+								<a href="{{ url_for('static', filename='files/license.pdf') }}" class="" alt="" target="_blank">№ Л035-01239-34/00651689.</a> 
+							</li>							
+						 <ul> 
+                    </p>
+					<p>За прошедшие годы мы успели создать настоящую команду и завоевать доверие наших клиентов, многие из которых стали нашими постоянными партнерами.
+					&nbsp; Все сотрудники компании имеют немалый опыт в юридической и других сферах.<br><br>
+					В своей работе мы используем только  современные технологии для оптимизации труда. 
+					Также мы сотрудничаем с ведущими компаниями для улучшения качества выполняемых нами работ.</p>
+					<h4 class="gamut-1iloxdz-Text e8i0p5k0">Наши реквизиты</h4>
+					<p>						
+						<strong>Полное наименование организации:</strong><br>
+						Общество с ограниченной ответственностью"Факультет"<br>
+						<strong>Директор:</strong><br>
+						Шуня Антон Владимирович<br><br>
+						<strong>ИНН</strong><br>
+						3461068817<br>
+						<strong>ОГРН</strong><br>
+						1233400003110<br>
+						<strong>КПП</strong><br>
+						346101001<br>
+						<strong>Номер контактного телефона:</strong><br>
+						+7-937-727-00-33<br>
+						<strong>Электронная почта:</strong><br>
+						faculty.dpo@yandex.ru<br><br>	
+						<strong>Учредительные документы:</strong><br>
+						<a href="{{ url_for('static', filename='files/usr.pdf') }}" class="btn-pdf" alt="" target="_blank"><i class="fa-light fa-file-pdf"></i></a> 
+					</p>
+				</div>
+				<div class="cadr-Grid-row1-ColumnDocLicense mod-Grid-none">
+					<h2 class="gamut-1iloxdz-Text e8i0p5k0">Наши цели и преимущества</h2>
+					<p>Факультет создан с целью подготовки высококвалифицированных специалистов в соответствии с запросами развития страны.</p>
+					<p>Конкурентными преимуществами системы непрерывного образования являются:</p>
+					<p> - высокая квалификация профессорско-преподавательского состава, позволяющая не только поддерживать систему непрерывного образования на высоком уровне, 
+						но и развивать ее за счет реализации новых актуальных программ.</p> 
+					<p> - клиенто и практикоориентированность программ дополнительного образования.</p>
+					
+					<p></p>
+				</div>			
+			</div>	
+        </div>			
+            
+        
+    </section>
+     
+    {% endblock %}

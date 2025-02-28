@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+	{% block content %}
+    <section class="ContentContainer">
+        <div class="gamut-Layout">
+            <div class="row">
+                <div class="col-md-12">
+                  <h3 class="section-title">CPO</h3>
+                  <div class="section-title-divider"></div>
+                  <p class="section-description">Вступление в СРО является обязательным для компаний и ИП, если деятельность компании подпадает под  виды работ СРО.</p>
+                </div>
+            </div>
+            <ul class="cadr-LayoutGrid">
+            {% for sro in sro_all %}
+                <li class="cadr-Grid-row1-Column " >			 		 
+                    <a class="card-Anchor-AnchorBase" aria-disabled="false"  href="{{ url_for('services.one_sro', name=sro.url) }}">
+                    <div class="card  card-Shadow">		
+                      <div class="card-header">
+                        CPO
+                      </div>
+                      <div class="card-body">
+                        
+                        <h5 class="card-title">{{ sro.name }}</h5>
+                        <span class="gamut-1aub0r4-Text e8i0p5k0">					
+                          Вступить в СРО за <b>48 часов</b>
+                    </span></br>
+                    <span class="gamut-1k7fboz-Text e8i0p5k0">от 70 тыс. рублей , рассрочка 0% </span>						
+                      </div>
+                    </div>
+                    </a>                    
+                </li>
+            {% endfor %}    
+            </ul>
+
+
+        </div>
+       
+    
+    </section>
+    {% endblock %}

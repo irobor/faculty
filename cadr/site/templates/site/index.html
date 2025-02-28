@@ -1,0 +1,314 @@
+{% extends "index.html" %}
+	{% block title %}
+		{{title}} 
+	{% endblock %}
+	{% block description %}
+		{{description}} 
+	{% endblock %}
+
+{% block hero %}
+   <!--==========================
+          Hero Section
+          ============================-->
+          <section id="hero">
+            <div class="hero-container">
+              <div class="wow fadeIn">
+                <div class="hero-logo">
+                  <img class="" src="{{url_for('static', filename='img/gerb.png')}}" alt="ПрофРазвитие">
+                </div>
+
+                <h1>Курсы повышения квалификации и профессиональной переподготовки</h1>
+                <h2>Вы получите <span class="rotating"> качественное образование, престижный диплом, удостоверение</span></h2>
+                <div class="actions">
+                  <a href="{{ url_for('catalog.index') }}" class="btn-get-started">Каталог</a>          
+                </div>
+              </div>
+            </div>
+          </section>
+    {% endblock %}
+   
+
+{% block content %}
+    
+        <section  class="ContentContainer "> 
+            <div class="gamut-LayoutGrid">
+                <div class="gamut-Column">				
+                    <div  class="gamut-jsyzbo-FlexBox ">
+                        <h2 class="about-title">Дополнительно профессиональное образование</h2>
+                        <p class="about-text">
+                                В современных условиях жёсткой конкуренции актуальным вопросом для каждого серьёзного руководителя является повышение уровня образования и профессионализма сотрудников предприятия.
+                               Внедрение новых технологий
+                        </p>
+                        <p class="about-text">
+                          Общество с Ограниченной Ответственностью "Факультет" предоставляет образовательные услуги на основании лицензии <a href="{{ url_for('static', filename='files/license.pdf') }}" class="" alt="" target="_blank">№ Л035-01239-34/00651689.</a> 
+                          
+                       </p>
+                      <span class="gamut-8-Text">
+                      </span>
+                    </div>		  
+                </div>
+                <div class="gamut-vb-Column">
+                    <picture>
+                        <img src="{{ url_for('static', filename='img/about-img199.jpg') }}" alt="" class="gamut-right-StyledImage">
+                    </picture>
+                </div>			
+            </div>
+          </section>   
+          
+         
+          
+           <!-- Категории grid===============-->
+          <section class="ContentContainer">
+          <div class="row">
+                <div class="col-md-12">
+                  <h3 class="section-title">Категории</h3>
+                  <div class="section-title-divider"></div>
+                  <p class="section-description">Учебный центр Факультет предлагает подготовку специалистов любого уровня по следующим направлениям:</p>
+                </div>
+              </div>
+          
+            <ul class="cadr-LayoutGrid">
+                <li class="category-Grid-row1-Column" >					
+                                 
+                    <a class="card-Anchor-AnchorBase" aria-disabled="false"  href="{{ url_for('catalog.course', id=329) }}">
+                    <div class="card gamut-wsj14t-VariableProvider-CardWrapper card-Shadow">		
+                      <div class="card-header">
+                        Категории
+                      </div>
+                      <div class="card-body">
+                        
+                        <h5 class="card-title page-title">Секретарь администратор</h5> 
+                        <p>Важным аспектом курса является овладение навыками эффективного временного планирования и организации работы.</p>
+                        
+                        <span class="gamut-1aub0r4-Text e8i0p5k0">
+                            <div class="gamut-1daig3l-Box-DifficultySpan e3kpyr80"></div>
+                            <div class="gamut-6g4lkt-Box-DifficultySpan e3kpyr80"></div>
+                            <span class="gamut-1wx7f9v-Text e8i0p5k0"><b>4 </b> <span class="gamut-1k7fboz-Text e8i0p5k0">курса</span></span>	
+                        </span>	
+                        <span class="gamut-1wx7f9v-Text e8i0p5k0">от<b> 9`000</b> <span class="gamut-1k7fboz-Text e8i0p5k0">рублей</span></span>			
+                      </div>
+                    </div>
+                    </a>
+                    
+                    </li>
+                    
+                    <li class="category-Grid-row2-Column" >				
+                             
+                    <a class="card-Anchor-AnchorBase" aria-disabled="false" href="{{ url_for('catalog.course', id=186) }}">
+                    <div class="card  card-Shadow-row2">		
+                      <div class="card-header">
+                        Повышение квалификации
+                      </div>
+                      <div class="card-body">
+                        
+                        <h5 class="card-title page-title">Экологическая безопасность</h5>
+                        <p>Обеспечение ЭБ руководителями и специалистами общехозяйственных систем управления.</p>
+                        <span class="gamut-1aub0r4-Text e8i0p5k0">
+                            <div class="gamut-1daig3l-Box-DifficultySpan e3kpyr80"></div>
+                            <div class="gamut-6g4lkt-Box-DifficultySpan e3kpyr80"></div>
+                        
+                        </span>	
+                        <span class="gamut-1wx7f9v-Text e8i0p5k0"><b> </b> <span class="gamut-1k7fboz-Text e8i0p5k0"></span></span>			  
+                        </div>
+                        <div class="gamut-card-img-FlexBox">
+                            <img src="https://static-assets.codecademy.com/components/curriculum/path/full-stack-engineer-career-path/curriculum-card.svg" alt="" class="gamut-StyledImg">
+                        </div>	
+                    </div>
+                    
+                    </a>
+                    
+                    </li>
+					
+				<!--
+                    
+                    <li class="category-Grid-row1-Column" >					
+                     		 
+                    <a class="card-Anchor-AnchorBase" aria-disabled="false"  href="{{ url_for('catalog.category',url_id='qlfc', id=4) }}">
+                    <div class="card gamut-wsj14t-VariableProvider-CardWrapper card-Shadow">		
+                      <div class="card-header">
+                        Категории
+                      </div>
+                      <div class="card-body">
+                        
+                        <h5 class="card-title page-title">Гражданская оборона и ЧС</h5>
+                        <p>Обращаясь в компанию «Факультет» для того чтобы пройти обучение по программе повышения квалификации.</p>
+                        
+                        <span class="gamut-1aub0r4-Text e8i0p5k0">
+                            <div class="gamut-1daig3l-Box-DifficultySpan e3kpyr80"></div>
+                            <div class="gamut-6g4lkt-Box-DifficultySpan e3kpyr80"></div>
+                            <span class="gamut-1wx7f9v-Text e8i0p5k0"><b>7 </b> <span class="gamut-1k7fboz-Text e8i0p5k0">курсов</span></span>	
+                        </span>	,
+                        
+                        <span class="gamut-1wx7f9v-Text e8i0p5k0">от<b> 9`000</b> <span class="gamut-1k7fboz-Text e8i0p5k0">рублей</span></span>				
+                      </div>
+                    </div>
+                    </a>
+                    
+                    </li>
+                    
+                    <li class="category-Grid-row1-Column" >	                   			 
+                    <a class="card-Anchor-AnchorBase" aria-disabled="false"  href="{{ url_for('catalog.category',url_id='qlfc', id=7) }}">
+                    <div class="card gamut-wsj14t-VariableProvider-CardWrapper card-Shadow">		
+                      <div class="card-header">
+                        Категории
+                      </div>
+                      <div class="card-body">
+                        
+                        <h5 class="card-title page-title">Экологическая безопасность</h5>
+                        <p>Лучшие инструменты и практики проведения мероприятий по обеспечению экологической безопасности объектов и территорий.</p>
+                        <span class="gamut-1aub0r4-Text e8i0p5k0">
+                            <div class="gamut-1daig3l-Box-DifficultySpan e3kpyr80"></div>
+                            <div class="gamut-6g4lkt-Box-DifficultySpan e3kpyr80"></div>
+                            <b> 83 </b> курса
+                        </span>	,
+                        <span class="gamut-1wx7f9v-Text e8i0p5k0">от <b>9`000</b> <span class="gamut-1k7fboz-Text e8i0p5k0">рублей</span></span>				
+                      </div>
+                    </div>
+                    </a>                    
+                    </li>
+                    
+                    <li class="category-Grid-row1-Column" >					
+                     		 
+                    <a class="card-Anchor-AnchorBase" aria-disabled="false"  href="">
+                    <div class="card gamut-wsj14t-VariableProvider-CardWrapper card-Shadow">		
+                      <div class="card-header">
+                        Категории
+                      </div>
+                      <div class="card-body">
+                        
+                        <h5 class="card-title page-title ">Менеджмент</h5>
+                        <p>Менеджмент в здравоохранении, IT менеджмент, Логистический менеджмент.</p>
+                        <span class="gamut-1aub0r4-Text e8i0p5k0">
+                            <div class="gamut-1daig3l-Box-DifficultySpan e3kpyr80"></div>
+                            <div class="gamut-6g4lkt-Box-DifficultySpan e3kpyr80"></div>
+                            <b>26</b> курсов
+                        </span>	,
+                        <span class="gamut-1wx7f9v-Text e8i0p5k0">от <b>9`000</b> <span class="gamut-1k7fboz-Text e8i0p5k0">рублей</span></span>				
+                      </div>
+                    </div>
+                    </a>
+                    
+                    </li>
+                    
+                    <li class="category-Grid-row1-Column" >				
+                     		 
+                    <a class="card-Anchor-AnchorBase" aria-disabled="false"  href="">
+                    <div class="card gamut-wsj14t-VariableProvider-CardWrapper card-Shadow">		
+                      <div class="card-header">
+                        Категории
+                      </div>
+                      <div class="card-body">
+                        
+                        <h5 class="card-title page-title">Управление и ЖКХ</h5>
+                        <p>Обучение по программе "Управление и техническая эксплуатация объектов недвижимости и ЖКХ".</p>
+                        <span class="gamut-1aub0r4-Text e8i0p5k0">
+                            <div class="gamut-1daig3l-Box-DifficultySpan e3kpyr80"></div>
+                            <div class="gamut-6g4lkt-Box-DifficultySpan e3kpyr80"></div>
+                            <b>19</b> курсов
+                        </span>	,
+                        <span class="gamut-1wx7f9v-Text e8i0p5k0">от <b>3`500</b> <span class="gamut-1k7fboz-Text e8i0p5k0">рублей</span></span>				
+                      </div>
+                    </div>
+                    </a>
+                    
+                    </li>
+                    
+                    <li class="category-Grid-row1-Column" >				
+                     		 
+                    <a class="card-Anchor-AnchorBase" aria-disabled="false"  href="">
+                    <div class="card gamut-wsj14t-VariableProvider-CardWrapper card-Shadow">		
+                      <div class="card-header">
+                        Категории
+                      </div>
+                      <div class="card-body">
+                        
+                        <h5 class="card-title page-title">Пожарная безопасность</h5>
+                        <p>бучение пожарной безопасности регламентировано Постановлением Правительства РФ №1479</p>
+                        <span class="gamut-1aub0r4-Text e8i0p5k0">
+                            <div class="gamut-1daig3l-Box-DifficultySpan e3kpyr80"></div>
+                            <div class="gamut-6g4lkt-Box-DifficultySpan e3kpyr80"></div>
+                            <b> 23</b> курса
+                        </span>	,
+                        <span class="gamut-1wx7f9v-Text e8i0p5k0">от <b>9`000</b> <span class="gamut-1k7fboz-Text e8i0p5k0">рублей</span></span>				
+                      </div>
+                    </div>
+                    </a>
+                    
+                    </li>
+				-->	
+            </ul>
+            
+          
+          </section>
+          
+          
+          <!--end Категории 
+    <!--Лицензирование===============
+   <section  class="ContentContainer ">
+    <div class="gamut-LayoutGrid">
+	<div class="gamut-Column">
+					<picture>
+						<img src="{{ url_for('static', filename='img/doc.jpg') }}" alt="" class="gamut-left-StyledImage e1fgbw4p0">
+					</picture>
+				</div>	
+		<div class="gamut-vb-Column">
+			
+				
+					<div  class="gamut-right-FlexBox ">
+					 <h2 class="about-title">Лицензирование</h2>
+					 <p class="about-text">
+						Порядок и условия лицензирования регулируются законом «О лицензировании
+						отдельных видов деятельности». Согласно нему, лицензия нужна для всех
+						организаций, работа которых влияет на права, законные интересы и здоровье
+						граждан, оборону и безопасность государства, культурное наследие народов Рф и
+						регулирование которых невозможно другим способом. Например, лицензия МЧС,
+						ФСБ, реставрационная деятельность и др.
+				  </p>
+				  <p class="about-text">				  
+				  </p>
+					  <span class="gamut-8-Text">
+					  </span>
+					</div>		  
+				</div>
+					
+			
+		
+	</div>
+  </section> 
+  -->
+   <!--Сертификаты===============
+   
+    <section  class="ContentContainer "> 
+    <div class="gamut-LayoutGrid">
+		<div class="gamut-Column">				
+			<div  class="gamut-jsyzbo-FlexBox ">
+				<h2 class="about-title">Сертификаты ISO</h2>
+				<p class="about-text">
+						Подобный документ необходим для подтверждения успешно пройденной
+						сертификации системы менеджмента качества по стандарту 150. Цель процедуры
+						улучшение качества продукции, реализуемой предприятием или организацией,
+						оптимизации управления производством и повышение квалификации сотрудников.
+						УЦ "Факультет" занимается оформлением любых видов сертификатов ГОСТ Р ИСО.
+				</p>
+				<p class="about-text">
+				   у 2% компаний за счет приоб- ретения сертификатов ИСО наблюдалось
+					увеличение прибыли в два раза в течение года.
+					87% компаний в течение 3х месяцев наблюдался прирост клиентов в 2.5 раза
+				</p>
+				
+			  <span class="gamut-8-Text">
+			   у 95% клиентов в два раза возрос процент выигрыша в тендерах, аукционах,
+					портах.
+			  </span>
+			</div>		  
+		</div>
+		<div class="gamut-vb-Column">
+			<picture>
+				<img src="{{ url_for('static', filename='img/iso1.jpg') }}" alt="" class="gamut-right-StyledImage">
+			</picture>
+		</div>			
+	</div>
+  </section>    
+  -->
+   
+{% endblock %}

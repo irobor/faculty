@@ -1,0 +1,59 @@
+{% extends "index.html" %}
+
+{% block title %} {{ title}}  {% endblock %}
+{% block description %} {{ description}} {% endblock %}
+
+	{% block content %}
+   <!-- #collapsed Dash Board ====-->
+  <header class="navbar navbar-dark sticky-top flex-md-nowrap p-cotalog">   
+    <button type="button" class="navbar-togglerbtn btn  btn-primary btn-cotalog collapsed" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+	Каталог Меню <i class="fa-regular fa-arrow-right-long"></i>
+	</button>
+  </header>
+  <!-- #collapsed Dash Board =====-->
+ 
+    <section class="ContentContainer">
+      <div class="catalog-LayoutGrid"> 
+        <!-- # SideBoard catalog ===============================-->
+       {% import '/catalog/_macrosshow.html' as sdbr %}
+       {{ sdbr.sidebar(widget_catalog, widget_path) }}   
+      <!-- # end SideBoard --> 
+        <div class="gamut-catalog-Column">
+          <div>
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="section-title">Изучите каталог курсов</h3>
+                <div class="section-title-divider"></div>
+                <p class="section-description">Документы выдаем установленного образца с занесением в соответствующие реестры, с подтверждением подлинности.</p>
+              </div>
+            </div>
+            <ul class="cadr-LayoutGrid">
+           {% for crss in popular_course_all %}
+              <li class="cadr-Grid-row1-Column " >			 		 
+                <a class="card-Anchor-AnchorBase" aria-disabled="false"  href="{{ url_for('catalog.course', id=crss['id_cours']) }}">
+                <div class="card  card-Shadow">		
+                  <div class="card-header">
+                    {{ crss['cat_curs'] }}
+                  </div>
+                  <div class="card-body">
+                  
+                  <h5 class="card-title">{{ crss['name'] }}</h5>
+                  {% for price in price_watch %}
+                  <p class="gamut-Text-P">
+                    {% if price['id'] == crss['price']  %}			
+                    <span class="gamut-1aub0r4-Text e8i0p5k0"><i class="fa-regular fa-clock"></i> <b>{{ price['watch'] }}</b> {{ price['word'] }}</span>,
+                    <span class="gamut-1wx7f9v-Text e8i0p5k0"> <b>{{ price['price'] }}</b> <i class="fa-regular fa-ruble-sign"></i> </span>
+                    {% endif %} 
+                  </p>
+                  {% endfor %}   				
+                  </div>
+                </div>
+                </a>                
+                </li>
+                {% endfor %}
+            </ul>
+          </div>
+        </div>     
+    </div>          
+   </section> 
+	{% endblock %}

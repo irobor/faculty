@@ -1,0 +1,49 @@
+{% macro menu(widget_menu)  -%} 
+ 
+ <!--==========================
+  Header Section
+  ============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <a href="{{ url_for('site.index') }}"><img src="{{url_for('static', filename='img/gerb.png')}}" alt="" title="" /></img></a>
+        <!-- Uncomment below if you prefer to use a text image -->
+        <!--<h1><a href="#hero">Header 1</a></h1>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
+        {% for mn in widget_menu.menu %}
+        {% if mn.dropdown == '1' %}            
+        <li class='nav-item dropdown'>
+          <a class="nav-link dropdown-toggle" href="" id="dropdownMenu2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ mn.name }}</a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+          {% for sub in widget_menu.submenu %}  
+            {% if mn.id == sub.id_menu %}
+            <a class="dropdown-color dropdown-item" href="{{ url_for(sub.url) }}">{{ sub.name }}</a>            
+            {% endif %}
+          {% endfor %}
+        </div>              
+      </li> 
+      {% else  %}        
+		<li class='{{mn.class}}'><a href="{{ url_for(mn.url) }}">{{ mn.name }}</a></li> 
+      {% endif %}      
+    {% endfor %}                    
+        </ul>  
+	<!-- #форма поиска --> 
+        <form method="POST" action="{{ url_for('search.index') }}" class="d-flex float-r-search" role="search">
+          {{ widget_menu.form.csrf_token }}
+          <div class="input-group  d-lg-flex mx-4">
+            {{ widget_menu.form.searched(class="form-control pe-5  form-search-placeholder rounded-end ", placeholder="Поиск по Каталогу", type='search') }}           
+            <i class="fa fa-search ci-search position-absolute top-50 end-0 translate-middle-y text-muted fs-base me-3" aria-hidden="true"></i>
+          </div>       
+        </form>        
+    <!-- # конец форма поиска -->
+      </nav>
+      <!-- #nav-menu-container -->
+    </div>
+  </header>
+  <!-- #header -->
+
+{%- endmacro %} 

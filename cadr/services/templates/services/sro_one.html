@@ -1,0 +1,184 @@
+{% extends "index.html" %}
+
+{% block title %}
+  {{ sro_one.name }}
+	{% endblock %}
+
+{% block content %} 
+
+
+ <!-- #collapsed Dash Board ==================-->
+  {% import '/services/_navbar.html' as nvbr %}
+  {{ nvbr.navbar() }} 
+  <!-- collapsed Dash Board========= -->
+
+  <section class="ContentContainer">
+      <div class="catalog-LayoutGrid"> 
+
+<!-- # SideBoard ===============================-->
+       {% import '/services/_sidebar.html' as sdbr %}
+       {{ sdbr.sidebar(widgetService, widget_path) }}   
+<!-- # end SideBoard --> 
+          
+          
+      <div class="gamut-catalog-Column license-row-gap">
+      <div class="gamut-nameLicense-CardWrappe">
+          <div class="gamut-nameLicenseLeft-FlexBox">
+              <h3 class="gamut-vefqpc-Text">СРО</h3>
+              <span class="gamut-98oavn-Text ">{{ sro_one.name }} за месяц</span>
+          </div>
+          <div class="gamut-nameLicenseright-Box iso-p">            
+            <p class="sro-font-size">Напрямую без посредников с предоставлением специалистов и материально-технической базы.</p>
+            <p class=""> Вступить в СРО строителей  за 48 часов, от 70 тыс. рублей , рассрочка 0%</p>
+          </div>          
+      </div>			
+      <div>     
+        <div class="row">
+          <div class="col-md-12">              
+            <div class="section-title-divider"></div>
+            <div class="service-description">
+              {{ sro_one.short_description | safe}}
+            </div>
+          </div>
+        </div> 
+     
+  <!----Кнопка модульного окна  -->
+      <ul class="cadr-LayoutGrid">           
+          <li class="cadr-Grid-row1-ColumnDocLicense" >				
+            <div class="col ">			 
+           <a class="card-Anchor-AnchorBase" aria-disabled="false"  data-bs-toggle="modal" data-bs-target="#staticBackdropLive">
+           <div class="card  card-Shadow-Doc-Servise">		
+             <div class="card-header">
+               Документы СРО
+             </div>
+             <div class="card-body">
+               
+               <h5 class="card-title">Необходимые документы</h5>
+               <span class="gamut-1aub0r4-Text e8i0p5k0">
+                   Бесплатную консультацию о подготовке и оформлению необходимых документов «под ключ»
+                   вы можете получить у наших экспертов по следующим телефонам: +7 (937) 727-00-33,
+                   электронной почте: info@profdevelop.ru. 
+               </span>
+               <span class="gamut-1wx7f9v-Text e8i0p5k0"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></span>				
+             </div>
+           </div>
+          </a>
+           </div>
+          </li>    
+      </ul>
+    <!---- конец Кнопки модульного окна  -->
+    
+      <h2>Варианты вступления в СРО</h2>
+      <div class="row mb40 mt20" style="margin-right: -15px;margin-left: -15px;">
+                          <div class="col-xs-12 col-sm-4">
+                              <div class="gray">
+                                  <h3>Ваша фирма + СРО</h3>
+                                  <p>Вы предоставляете учредитель- ные документы на свою фирму, и мы ее вводим в надёжное СРО</p>
+                              </div>
+                          </div>
+                          <div class="col-xs-12 col-sm-4">
+                              <div class="gray">
+                                  <h3>Новая фирма + СРО</h3>
+                                  <p>Мы зарегистрируем для вас новую фирму ( ООО / ИП ) и оформим свидетельство СРО</p>
+                              </div>
+                          </div>
+                          <div class="col-xs-12 col-sm-4">
+                              <div class="gray">
+                                  <h3>Готовая фирма + СРО</h3>
+                                  <p>Если у вас нет своей фирмы, мы предоставим на выбор более 100 фирм с допуском СРО</p>
+                              </div>
+                          </div>
+                      </div>
+    <h2>Стоимость вступления в региональную СРО</h2>				
+    <div class="table-responsive"> 
+                         <div class="table-responsive"> 
+                          <table class="table table-success table-striped table-bordered">
+                              <thead>
+                                  <tr>
+                                      <td>Саморегулируемая<br> организация</td>
+                                      <td>Сумма<br> контракта</td>
+                                      <td>КФ возмещения<br> вреда</td>
+                                      <td>КФ возмещения<br> договорных обязательств</td>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>СРО строителей</td>
+                                      <td>
+                                          до 60 млн. р. <br>              
+                                          до 500 млн. р. <br>   
+                                          до 3 млрд. р.  <br>            
+                                          до 10 млрд. р.
+                                      </td>
+                                      <td>
+                                          100 тыс. р.<br> 
+                                          500 тыс. р.<br> 
+                                          1,5 млн. р.<br> 
+                                          2 млн. р.
+                                      </td>
+                                      <td>
+                                          200 тыс. р.<br> 
+                                          2,5 млн. р.<br> 
+                                          4,5 млн. р.<br> 
+                                          7 млн. р.
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          СРО проектировщиков<br> 
+                                          СРО изыскателей<br> 
+                                          СРО энергоаудиторов
+                                      </td>
+                                      <td>
+                                          до 25 млн. р.   <br>      
+                                          до 50 млн. р.   <br>               
+                                          до 299 млн. р.   <br>     
+                                          свыше 300 млн. р
+                                      </td>
+                                      <td>
+                                          50 тыс. р.<br> 
+                                          150 тыс. р.<br> 
+                                          500 тыс. р.<br> 
+                                          1 млн. р.
+                                      </td>
+                                      <td>
+                                          150 тыс. р.<br> 
+                                          350 тыс. р.<br> 
+                                          2,5 млн. р.<br> 
+                                          3,5 млн. р.
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                      </div>
+          </div>			
+          </div>	          
+      </div>
+
+      <!--Модульное окно для документов СРО-->
+      <div class="modal fade" id="staticBackdropLive" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLiveLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              {{ sro_one.documents | safe}}
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <!--Конец Модульного окна для документов СРО-->
+  </section>
+
+
+
+
+{% endblock %}      

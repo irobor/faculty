@@ -1,0 +1,41 @@
+{% macro footer(widget_catalog, widget_footer)  -%}  
+ 
+<footer id="footer">
+    <section  class="ContentContainer "> 
+       <div class="gamut-LayoutGrid">
+        <div class="gamut-footer-Column"> 
+		  <div class="gamut-1l8m389footer-GridBox">			
+			
+		  </div>
+		  
+        </div>
+		<div class="gamut-footer-Column"> 
+		  <div class="gamut-footer2-CatalogLinksContainer">
+			<div class="gamut-1l8m389footer-GridBox">
+				<div>
+					<h2>Каталог</h2>
+					<ul class="gamut-ve936v-Box-FooterLinkItems">
+						{% for cat in widget_catalog.category %}
+						<li class="gamut-1suzlqi-FooterLinkItem"> 
+						<a class="gamut-footer-ResetElement-Anchor-AnchorBase" href="">{{ cat['name'] }}</a>
+						</li>
+						{% endfor %}
+						
+					</ul>
+				</div>
+		 </div>
+		</div>
+	  </div>  
+      </div>
+    </section>
+	<section  class="ContentContainer "> 
+	<div class="copyright">
+            &copy; Copyright <strong>Robor</strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            
+          </div>
+	 </section>
+  </footer>
+  
+  {%- endmacro %}  

@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+	{% block content %}
+    <section class="ContentContainer">
+        <div class="gamut-Layout">
+            <div class="row">
+                <div class="col-md-12">
+                  <h3 class="section-title">Сертификаты</h3>
+                  <div class="section-title-divider"></div>
+                  <p class="section-description">Современный рынок ориентирован на потребительские интересы, а это значит,
+                     что все его участники должны иметь возможность получения независимой оценки безопасности производства и качества выпускаемых товаров, 
+                     а также предоставляемых услуг. Именно для этих целей была разработана и успешно внедрена система менеджмента качества. Благодаря СМК,
+                      проверить товары на соответствие различным нормам и регламентам, таким как административно-технические нормы, соблюдение условий договоров и другим,
+                       стало гораздо проще. 
+                    Весь этот процесс можно описать одним словом – сертификация, и проводится он уполномоченными органами.
+                   </p>
+                </div>
+            </div>
+            <ul class="cadr-LayoutGrid">
+            {% for cert in certificates %}
+                <li class="cadr-Grid-row1-Column " >			 		 
+                    <a class="card-Anchor-AnchorBase" aria-disabled="false"  href="{{ url_for('services.one_certificate', name=cert.url) }}">
+                    <div class="card  card-Shadow">		
+                      <div class="card-header">
+                        Сертификаты
+                      </div>
+                      <div class="card-body">
+                        
+                        <h5 class="card-title">{{ cert.name }}</h5>
+                        <span class="">					
+                          Срок действия сертификата ИСО - <b>3 года.</b>
+                        </span>	</br>
+                        <span class="">Срок оформления сертификата от  <b>1,5 часов</b></span>				
+                      </div>
+                    </div>
+                    </a>                    
+                </li>
+            {% endfor %}    
+            </ul>
+
+
+        </div>
+       
+    
+    </section>
+    {% endblock %}

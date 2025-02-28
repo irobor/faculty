@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}     
+    <section class="ContentContainer">
+        <div class="gamut-Layout"> 
+            <div class="row">                
+                <div data-testid="header-search-dropdown" class="gamut-SearchContainer">
+                    <form method="POST" action="{{ url_for('search.index') }}" class="d-flex float-r-search gamut-StyledForm" role="search">
+                        {{ widget_menu.form.csrf_token }}                     
+                        <i class="fa fa-search ci-search position-absolute top-50 start-0 translate-middle-y text-i fs-base me-3" aria-hidden="true"></i>
+                        {{ widget_menu.form.searched(class="gamut-Search-StyledInput", placeholder="Поиск по Каталогу", type='search') }}                                             
+                    </form>
+                </div>
+                  {% if form.searched.errors %}
+                  <ul class="errors">
+                  {% for error in form.searched.errors %}
+                      <li>{{ error }}</li>
+                  {% endfor %}
+                  </ul>
+              {% endif %}   
+            </div>            
+            
+         </div>  
+    </section> 
+{% endblock %}

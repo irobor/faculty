@@ -1,0 +1,123 @@
+{% extends "index.html" %}
+
+
+{% block content %} 
+
+
+ <!-- #collapsed Dash Board ==================-->
+ {% import '/services/_navbar.html' as nvbr %}
+ {{ nvbr.navbar() }} 
+ <!-- collapsed Dash Board========= -->
+
+ <section class="ContentContainer">
+     <div class="catalog-LayoutGrid"> 
+
+<!-- # SideBoard ===============================-->
+       {% import '/services/_sidebar.html' as sdbr %}
+       {{ sdbr.sidebar(widgetService, widget_path) }}   
+<!-- # end SideBoard --> 
+          
+          
+      <div class="gamut-catalog-Column license-row-gap">
+        <div class="gamut-nameLicense-CardWrappe">
+            <div class="gamut-nameLicenseLeft-FlexBox">
+                <h3 class="gamut-vefqpc-Text">Cертификат</h3>
+                <span class="gamut-98oavn-Text ">{{ model_cert.name }} за 3 часа </span>
+            </div>
+            <div class="gamut-nameLicenseright-Box iso-p">
+                <p class="">у <span>92%</span> компаний за счет приоб- ретения сертификатов ИСО наблю- далось увеличение прибыли в два раза в течение года.</p>
+                <p class="">у <span>87%</span>  компаний в течение 3-х месяцев наблюдался прирост клиентов в 2,5 раза</p>
+                <p class=""> у <span>95%</span>  клиентов  в два раза возрос процент выигрыша в тендерах, аукционах, торгах. </p>
+            </div> 
+        </div>			
+      <div>
+        <div class="row">
+            <div class="col-md-12">              
+              <div class="section-title-divider"></div>
+              <div class="service-description">
+                {{ model_cert.short_description | safe }}
+              </div>
+            </div>
+          </div>
+        <!----Кнопка модульного окна  -->
+        <ul class="cadr-LayoutGrid">           
+            <li class="cadr-Grid-row1-ColumnDocLicense" >				
+              <div class="col ">			 
+             <a class="card-Anchor-AnchorBase" aria-disabled="false"  data-bs-toggle="modal" data-bs-target="#modulCertificateDoc">
+             <div class="card  card-Shadow-Doc-Servise">		
+               <div class="card-header">
+                 Документы СРО
+               </div>
+               <div class="card-body">
+                 
+                 <h5 class="card-title">Необходимые документы</h5>
+                 <span class="gamut-1aub0r4-Text e8i0p5k0">
+                     Бесплатную консультацию о подготовке и оформлению необходимых документов «под ключ»
+                     вы можете получить у наших экспертов по следующим телефонам: +7 (937) 727-00-33,
+                     электронной почте: info@profdevelop.ru. 
+                 </span>
+                 <span class="gamut-1wx7f9v-Text e8i0p5k0"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></span>				
+               </div>
+             </div>
+            </a>
+             </div>
+            </li>    
+        </ul>
+      <!---- конец Кнопки модульного окна  -->
+          </div>
+          <h2>Какие нужны сертификаты ИСО ?</h2>
+          <p>Сертификация ИСО по большей части является добровольной в РФ, однако все больше заказчиков требуете ее наличие, обосновывая это нюансами законодательства, так же сами потребители стремятся работать с сертифицированными компаниями, так как это показатель качества и ответственности компании.
+               Сертификация ИСО универсальная услуга, которую может приобрести любая компания. Нашими клиентами являются организации из разнообразных сфер:
+            </p>
+          <div class="row sertlist mt20 mb40" style="margin-right: -15px;margin-left: -15px;">
+            <div class="col-xs-12 col-sm-6">
+                <p><strong>Строители</strong> - ИСО 9001 , 14001, 18001, ИСМ, 26000, 50001</p>
+                <p><strong>Проектировщики</strong>  - ИСО 9001 , 14001, 18001, ИСМ, 26000</p>
+                <p><strong>Изыскатели</strong> - ИСО 9001 , 14001, 18001, ИСМ, 26000</p>
+                <p><strong>Охранные компании (ЧООП)</strong> - ИСО 26000, 14001, 18001</p>
+                <p><strong>Обучение (тренингов, обучающие центры)</strong> - ИСО 26000, 9001, 14001</p>
+                <p><strong>Клининговые компании</strong> - ИСО 26000, 9001, 14001</p>
+                <p><strong>Перевозки (транспортные услуги)</strong> - ИСО 28001, 26000, 9001, 31000</p>
+                <p><strong>Производство и поставка продуктов питания</strong> - ИСО 28001, 26000, 9001, 22000, 50001, 31000</p>
+                <p><strong>Производство и продажа мебели</strong> - ИСО 28001, 26000, 9001, 14001, 18001, ИСМ, 50001, 31000</p>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <p><strong>Производство напитков (соки, газированные воды, алкогольная продукция)</strong>  - ИСО 28001, 26000, 9001, 14001, 18001, ИСМ, 22000, 50001, 31000</p>
+                <p><strong>Оптовые поставки</strong> - ИСО 28001, 26000, 9001, 31000</p>
+                <p><strong>IT компании</strong>  -  ИСО 9001 , 27001, 31000, 20000</p>
+                <p><strong>Консалтинговые компании</strong> - ИСО 26000, 9001, 31000</p>
+                <p><strong>Промышленные организации</strong>  - ИСО 26000, 9001, 14001, 18001, ИСМ, 50001), 31000</p>
+                <p><strong>Производство и поставка медицинских издели</strong> - ИСО 13485, 9001, 14001, 18001, ИСМ, 50001, 31000</p>
+                <p><strong>Фармацевтическое производство</strong> - ИСО 9001, 14001, 18001, ИСМ, 50001, 31000</p>
+                <p><strong>Перевозка, переработка, захоронение отходов (1-4 класса)</strong> - ИСО 9001 , 14001, 18001, ИСМ, 31000</p>
+            </div>    
+        </div>			
+          </div>          
+      </div>
+      <!--Модульное окно для документов СРО-->
+      <div class="modal fade" id="modulCertificateDoc" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modulCertificateDoc" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modulCertificateDoc">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              {{ model_cert.documents | safe}}
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <!--Конец Модульного окна для документов СРО-->
+  </section>
+
+
+
+
+{% endblock %}        
+

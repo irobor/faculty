@@ -1,0 +1,115 @@
+{% extends "index.html" %}
+{% block title %}
+{{category_description['title']}}
+{% endblock %}
+	{% block content %} 
+   <!-- #collapsed Dash Board ====-->
+   <header class="navbar navbar-dark sticky-top flex-md-nowrap p-cotalog">   
+    <button type="button" class="navbar-togglerbtn btn  btn-primary btn-cotalog collapsed" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+		Каталог Меню <i class="fa-regular fa-arrow-right-long"></i>
+	</button>
+  </header>
+  <!-- #collapsed Dash Board =====--> 
+    <section class="ContentContainer">
+      <div class="catalog-LayoutGrid"> 
+        <!-- # SideBoard ===============================-->
+        {% import '/catalog/_macros.html' as sdbr %}
+        {{ sdbr.sidebar(widget_catalog, widget_path) }}   
+         <!-- # end SideBoard --> 
+        <div class="gamut-catalog-Column">
+            <div>
+				<div class="gamut-catalog-bild-1i3dz28-Column">
+					<div class="gamut-catalog-bild-pgy8yi-LayoutGrid">
+					  <div class="gamut-1khek3y-Column"> 
+						  <div class="gamut-n8gfi4-Column">					
+							<nav aria-label="breadcrumb">
+							  <ol class="breadcrumb">
+							  <li class="breadcrumb-item"><a href="{{ url_for('catalog.index') }}">Каталог</a></li>
+							  <li class="breadcrumb-item active" aria-current="page">{{category_description['name']}}</li>
+							  </ol>
+							</nav>					
+						  </div>
+						  <h1 class="gamut-1pr88a5-Text">{{category_description['name']}}</h1>				
+						  <p class="service-description">
+							{{ category_description['description'] | safe }} 						
+						  </p>
+					  </div>   
+					  <div class="gamut-2rby5o-Column">
+						<h3 class="gamut-zu6asd-Text" >Рекомендуемые</h3>
+						  <div class="cadr-Grid-row1-Column " >			 		 
+							   <!---- рекомендованный курс ------>
+							  {% for crss in courses %}
+								{% if  crss['id'] == crs_recmmn %} 
+								  <a class="card-Anchor-AnchorBase" aria-disabled="false"  href="{{ url_for('catalog.course', id=crss['id']) }}">
+									<div class="card  card-Shadow">		
+									  <div class="card-header">
+										{{ crss['cat_name'] }}
+									  </div>
+									  <div class="card-body">
+									  
+										<h5 class="card-title">{{ crss['name'] }}</h5>
+					  
+										{% for price in price_watch %}
+										<p class="gamut-Text-P">
+										  {% if price['id'] == crss['price']  %}			
+										  <span class="gamut-1aub0r4-Text e8i0p5k0"><i class="fa-regular fa-clock"></i> <b>{{ price['watch'] }}</b> {{ price['word'] }}</span>,
+										  <span class="gamut-1wx7f9v-Text e8i0p5k0"> <b>{{ price['price'] }}</b> <i class="fa-regular fa-ruble-sign"></i> </span>
+										  {% endif %} 
+										</p>
+										{% endfor %}                  				
+									  </div>
+									</div>
+									</a>     
+								  {% endif %} 
+							   {% endfor %}
+                      
+                 <!---- конец рекомендованный курс ------>				
+						  </div>
+					  </div>
+					</div>		
+				</div>     
+            </div>
+
+          </div> 
+          
+        </div> 
+        <!----плитки ------>
+        <div>
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="section-title">Курсы</h3>
+              <div class="section-title-divider"></div>
+              <p class="section-description">Государственная Лицензия, все документы заносятся в <span class="span-color">ФИС ФРДО!</span></p>
+            </div>
+          </div>
+          <ul class="cadr-LayoutGrid">
+          
+          {% for crss in courses%}
+            <li class="category-Grid-row1-Column" >			 		 
+              <a class="card-Anchor-AnchorBase" aria-disabled="false"  href="{{ url_for('catalog.course', id=crss['id']) }}">
+              <div class="card  card-Shadow">		
+                <div class="card-header">
+                  {{ crss['cat_name'] }}
+                </div>
+                <div class="card-body">
+                
+                <h5 class="card-title">{{ crss['name'] }}</h5>
+               
+                {% for price in price_watch %}
+                  <p class="gamut-Text-P">			
+                     {% if price['id'] == crss['price']  %}			
+                    <span class="gamut-1aub0r4-Text e8i0p5k0"><i class="fa-regular fa-clock"></i> <b>{{ price['watch'] }}</b> {{ price['word'] }}</span>,
+                    <span class="gamut-1wx7f9v-Text e8i0p5k0"> <b>{{ price['price'] }}</b> <i class="fa-regular fa-ruble-sign"></i> </span>
+                    {% endif %} 
+                  </p>
+                {% endfor %}  			
+                </div>
+              </div>
+              </a>                
+              </li>
+              {% endfor %}
+          </ul>
+        </div>
+<!-- конец плитки -->         
+</section> 
+{% endblock %}

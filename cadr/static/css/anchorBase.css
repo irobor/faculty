@@ -1,0 +1,65 @@
+.before1:before{
+	content: 'dddd';
+	border:2px solid var(--color-secondary);
+	border-color:var(--color-primary);
+}
+.gamut-1snn8i9-ResetElement-Anchor-AnchorBase{
+	cursor:pointer;
+	border:none;
+	/* background:none;
+	 */padding:0;font-size:inherit;
+	 -webkit-text-decoration:none;
+	 text-decoration:none;box-shadow:none;
+	 color:var(--color-text);border:none;
+	 padding:0;/* font-size:inherit; *//* white-space:initial;
+	 *//* box-shadow:none;
+	 *//* display:inline-block;
+	 */position:relative;/* color:var(--color-text);
+	 *//* background-color:transparent;
+	 *//* display:grid; */
+ }
+.gamut-1snn8i9-ResetElement-Anchor-AnchorBase:hover
+{-webkit-text-decoration:none;text-decoration:none;}
+.gamut-1snn8i9-ResetElement-Anchor-AnchorBase:focus{outline:none;}
+.gamut-1snn8i9-ResetElement-Anchor-AnchorBase:before{
+	content: ''; 	
+	border:2px solid var(--color-secondary);
+	border-color:var(--color-primary);
+	position:absolute;
+	top:-4px;
+	right:-4px;bottom:-4px;
+	left:-4px;z-index:0;
+	opacity:0;
+	border-radius:4px;
+}
+.gamut-1snn8i9-ResetElement-Anchor-AnchorBase:hover{
+	cursor:pointer;
+	-webkit-text-decoration:none;
+	text-decoration:none;
+	color:var(--color-primary);
+}
+.gamut-1snn8i9-ResetElement-Anchor-AnchorBase [disabled],.gamut-1snn8i9-ResetElement-Anchor-AnchorBase:disabled,
+.gamut-1snn8i9-ResetElement-Anchor-AnchorBase[aria-disabled='true'] {
+	cursor:not-allowed;
+	-webkit-text-decoration:none;
+	text-decoration:none;
+	color:var(--color-text-disabled);
+}
+.gamut-1snn8i9-ResetElement-Anchor-AnchorBase[data-focus-visible-added]:before{opacity:1;}
+.gamut-1snn8i9-ResetElement-Anchor-AnchorBase[data-focus-visible-added]{color:var(--color-text);}
+.gamut-wsj14t-VariableProvider-CardWrapper {
+    --color-background-current: var(--color-white);
+    color: var(--color-text);
+    border: 1px solid var(--color-secondary);
+    border-color: var(--color-navy);
+    padding: 1rem;
+    display: grid;
+    min-height: 11.25rem;
+    background-color: var(--color-background-current);
+    grid-template-rows: repeat(3, max-content) 1fr max-content;
+    position: relative;
+    -webkit-transition: box-shadow 200ms ease,-webkit-transform 200ms ease;
+    transition: box-shadow 200ms ease,transform 200ms ease;
+    box-shadow: 0px 0px 0 var(--color-navy);
+    position: relative;
+}

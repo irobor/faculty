@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+	{% block content %}
+    <section class="ContentContainer">
+        <div class="gamut-Layout">
+            <div class="row">
+                <div class="col-md-12">
+                  <h3 class="section-title">Лицензии</h3>
+                  <div class="section-title-divider"></div>
+                  <p class="section-description"> Под ключ со специалистами и оборудованием с возможным ускорением до 2-х недель</p>
+                </div>
+            </div>
+            <ul class="cadr-LayoutGrid">
+            {% for lcn in licenses %}
+                <li class="cadr-Grid-row1-Column " >			 		 
+                    <a class="card-Anchor-AnchorBase" aria-disabled="false"  href="{{ url_for('services.one_license', name=lcn.url) }}">
+                    <div class="card  card-Shadow">		
+                      <div class="card-header">
+                        Лизензии
+                      </div>
+                      <div class="card-body">
+                        
+                        <h5 class="card-title">{{ lcn.name }}</h5>
+                        <span class="">					
+                                Срок действия Лицензии - <b>{{ lcn.age }}</b>
+                        </span>	</br>
+                        <span class="">Срок полчения <b>1 месяц </b></span>				
+                      </div>
+                    </div>
+                    </a>                    
+                </li>
+            {% endfor %}    
+            </ul>
+
+
+        </div>
+       
+    
+    </section> 
+    {% endblock %}

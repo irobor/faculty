@@ -1,0 +1,44 @@
+{% macro sidebar(widget_catalog, widget_path)  -%}
+<!-- макрос с подключением sidebar для страницы catalog -->
+
+<div class="gamut-dashboard-Box">
+  <nav id="sidebarMenu" class="d-xl-block sidebar collapse">
+    <div class="gamut-v343wc-Box" style="width: 280px;">
+      <span class="fs-5 fw-semibold">Каталог</span>
+      <ul class="list-unstyled ps-0">
+
+{% for cl in widget_catalog.classes%}
+<li class="mb-1">
+  <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#{{cl['id_css'] }}-collapse" aria-expanded="true">
+		  {{ cl['class_name'] }}
+  </button>
+  {% if cl['url'] in widget_path.url_path %}
+    <div class="collapse show" id="{{cl['id_css'] }}-collapse">
+  {% else  %}
+    <div class="collapse " id="{{cl['id_css'] }}-collapse">
+  {% endif %}
+      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+        {% for cat in widget_catalog.category %}
+          {% if cat['id_classes'] == cl['id'] %}          
+            <li>
+              {% if request.path == url_for('catalog.category', url_id=cl['url'], id=cat['id']) %}
+                <a class="link-dark rounded activated " href="{{ url_for('catalog.category',url_id=cl['url'], id=cat['id']) }}" >{{ cat['name'] }} </a>
+              {% else %}
+                <a class="link-dark rounded" href="{{ url_for('catalog.category', url_id=cl['url'], id=cat['id']) }}" >{{ cat['name'] }} </a>
+              {% endif %}  
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+  </div>
+</li>
+    {% endfor %}
+    
+
+      </ul>
+    </div>
+  </nav>
+</div>
+{%- endmacro %}
+
+

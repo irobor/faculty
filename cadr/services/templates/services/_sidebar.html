@@ -1,0 +1,66 @@
+{% macro sidebar(widgetService, widget_path)  -%} 
+
+<div class="gamut-dashboard-Box">	
+    <nav id="sidebarMenu" class="d-xl-block sidebar collapse">        
+      <div class="gamut-v343wc-Box" style="width: 280px;">        
+          <span class="fs-5 fw-semibold">Услуги</span>
+    
+        <ul class="list-unstyled ps-0">
+        {% for sub_menu in widgetService.service_submenu%}    
+          <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#{{sub_menu['id_css'] }}-collapse" aria-expanded="true">
+               {{ sub_menu.name }}
+            </button>
+            {% if sub_menu['id_css'] in widget_path.url_path %}
+                <div class="collapse show" id="{{sub_menu['id_css'] }}-collapse">
+            {% else  %}
+                <div class="collapse " id="{{sub_menu['id_css'] }}-collapse">
+            {% endif %}
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                {% if sub_menu['id'] == 1 %}
+                  {% for s_l in widgetService.service_license %}  
+                    <li>
+                      {% if request.path == url_for('services.one_license', name=s_l.url) %}
+                        <a href="{{ url_for('services.one_license', name=s_l.url) }}" class="link-dark rounded activated">{{ s_l.name }}</a>
+                      {% else %}
+                        <a href="{{ url_for('services.one_license', name=s_l.url) }}" class="link-dark rounded">{{ s_l.name }}</a>
+                      {% endif %}
+                    </li>
+               
+                   {% endfor %}
+                {% elif sub_menu['id'] == 2 %}
+                   {% for s_sro in widgetService.service_sro %}  
+                     <li>
+                      {% if request.path == url_for('services.one_sro', name=s_sro.url) %}
+                        <a href="{{ url_for('services.one_sro', name=s_sro.url) }}" class="link-dark rounded activated">{{ s_sro.name }}</a>
+                      {% else %}
+                        <a href="{{ url_for('services.one_sro', name=s_sro.url) }}" class="link-dark rounded">{{ s_sro.name }}</a>
+                      {% endif %}                    
+                    </li>
+           
+                  {% endfor %}
+                  {% elif sub_menu['id'] == 3 %}
+                   {% for s_cert in widgetService.service_certificates %}  
+                     <li>
+                      {% if request.path == url_for('services.one_certificate', name=s_cert.url) %}
+                        <a href="{{ url_for('services.one_certificate', name=s_cert.url) }}" class="link-dark rounded activated">{{ s_cert.name }}</a>
+                      {% else %}
+                        <a href="{{ url_for('services.one_certificate', name=s_cert.url) }}" class="link-dark rounded">{{ s_cert.name }}</a>
+                        {% endif %}                     
+                    </li>
+                    {% endfor %}
+                  {% endif %}
+
+              </ul>              
+            </div>
+          </li>
+         
+        {% endfor %}
+        </ul>
+  </div>
+</nav>
+<!--==========================
+
+============================-->
+</div>
+{%- endmacro %}  
